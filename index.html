@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Trustpilot Help Center Analyzer</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header>
+  <h1>Trustpilot Help Center — Navigation Analyzer</h1>
+  <div class="controls">
+    <input id="search" type="text" placeholder="Search e.g. 'password', 'edit review', 'invoice'..." />
+    <span id="match-count"></span>
+    <span class="view-toggle">
+      <button id="view-list" class="btn active">List view</button>
+      <button id="view-diagram" class="btn">Diagram view</button>
+    </span>
+    <button id="expand-all" class="btn">Expand all</button>
+    <button id="collapse-all" class="btn">Collapse all</button>
+  </div>
+</header>
+<div id="stats" class="stats"></div>
+<main>
+  <div id="tree" class="view-list"></div>
+</main>
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
