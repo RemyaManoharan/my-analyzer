@@ -4,6 +4,8 @@
   --topic: #1f6feb;
   --subtopic: #0e8a5f;
   --article: #6e6e6e;
+  --featured: #b35900;
+  --quicklink: #7a5200;
   --highlight: #ffd54a;
   --highlight-path: #fff3c4;
   --dim: 0.32;
@@ -138,7 +140,9 @@ ul.tree { padding-left: 0; border-left: none; }
   user-select: none;
 }
 
-.node .badge {
+/* Not scoped to .node - the diagram view uses .node-box, and badges must stay
+   legible (white on colour) in both views. */
+.badge {
   font-size: 10px;
   text-transform: uppercase;
   letter-spacing: .03em;
@@ -152,6 +156,8 @@ ul.tree { padding-left: 0; border-left: none; }
 .badge.topic { background: var(--topic); }
 .badge.subtopic { background: var(--subtopic); }
 .badge.article { background: var(--article); }
+.badge.featured { background: var(--featured); }
+.badge.quicklink { background: var(--quicklink); }
 
 .node .label { font-size: 14px; }
 .node .clicks {
@@ -240,28 +246,43 @@ ul.tree { padding-left: 0; border-left: none; }
   display: inline-flex;
   flex-direction: column;
   align-items: center;
-  gap: 4px;
-  min-width: 130px;
-  max-width: 190px;
-  padding: 8px 10px;
-  border: 1px solid #d5d5d5;
+  gap: 3px;
+  min-width: 140px;
+  max-width: 200px;
+  padding: 9px 12px;
+  border: 1.5px solid #d5d5d5;
   border-radius: 8px;
   background: #fff;
   cursor: pointer;
-  transition: opacity .15s ease, box-shadow .15s ease, background .15s ease;
+  transition: opacity .15s ease, box-shadow .15s ease, background .15s ease,
+    border-color .15s ease;
 }
-.node-box:hover { box-shadow: 0 2px 6px rgba(0,0,0,.08); }
+.node-box:hover {
+  box-shadow: 0 3px 10px rgba(0,0,0,.12);
+  border-color: #a8a8a8;
+}
 
-.node-box .badge { margin-bottom: 2px; }
+/* Each level gets its own tinted outline, so depth is readable at a glance
+   without reading the badges. Type class comes from node.type in app.js. */
+.node-box.home { border-color: var(--home); background: #f4f4f4; }
+.node-box.audience { border-color: var(--audience); background: #f5f2ff; }
+.node-box.topic { border-color: var(--topic); background: #f1f7ff; }
+.node-box.subtopic { border-color: var(--subtopic); background: #f0faf6; }
+.node-box.article { border-color: #d5d5d5; background: #fff; }
+.node-box.featured { border-color: var(--featured); background: #fff8f0; }
+.node-box.quicklink { border-color: var(--quicklink); background: #fdf5e6; }
+
+.node-box .badge { margin-bottom: 1px; }
 .node-box .label {
   font-size: 12.5px;
-  line-height: 1.3;
+  line-height: 1.35;
+  color: #1a1a1a;
   white-space: normal;
   word-break: break-word;
 }
 .node-box .clicks {
   font-size: 10px;
-  color: #999;
+  color: #767676;
 }
 .node-box .expand-hint {
   font-size: 10px;
@@ -269,6 +290,7 @@ ul.tree { padding-left: 0; border-left: none; }
   font-weight: 600;
 }
 
+/* Search states win over the per-type tints above. */
 .node-box.dimmed { opacity: var(--dim); }
 .node-box.on-path { background: var(--highlight-path); border-color: #e6c94d; }
 .node-box.is-match { background: var(--highlight); border-color: #d9a900; font-weight: 600; }

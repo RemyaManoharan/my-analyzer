@@ -22,12 +22,12 @@ const TREE_DATA = {
         {
           id: "rev-featured",
           label: "Featured (landing page quick links)",
-          type: "topic",
+          type: "featured",
           children: [
             {
               id: "rev-new-to-tp",
               label: "New to Trustpilot",
-              type: "subtopic",
+              type: "quicklink",
               children: [
                 { id: "rev-who-can-write-review", label: "Who can write a review", type: "article" },
                 { id: "rev-quick-start-guide", label: "Quick start guide", type: "article" },
@@ -37,7 +37,7 @@ const TREE_DATA = {
             {
               id: "rev-reviews-101",
               label: "Trustpilot reviews 101",
-              type: "subtopic",
+              type: "quicklink",
               children: [
                 { id: "rev-write-a-review", label: "Write a review", type: "article" },
                 { id: "rev-edit-or-delete-review", label: "Edit or delete a review", type: "article", keywords: ["delete review"] },
@@ -47,7 +47,7 @@ const TREE_DATA = {
             {
               id: "rev-how-to-use-tp",
               label: "How to use Trustpilot",
-              type: "subtopic",
+              type: "quicklink",
               children: [
                 { id: "rev-discover-new-businesses", label: "Discover new businesses", type: "article" },
                 { id: "rev-tips-using-tp-featured", label: "Tips for using Trustpilot", type: "article" },
@@ -262,10 +262,10 @@ const TREE_DATA = {
         {
           id: "biz-featured",
           label: "Featured (landing page quick links)",
-          type: "topic",
+          type: "featured",
           children: [
-            { id: "biz-new-shopify-app", label: "New Shopify app", type: "topic", children: [], keywords: ["upgrade now", "shopify"] },
-            { id: "biz-new-releases", label: "New releases", type: "topic", children: [], keywords: ["learn more"] }
+            { id: "biz-new-shopify-app", label: "New Shopify app", type: "quicklink", children: [], keywords: ["upgrade now", "shopify"] },
+            { id: "biz-new-releases", label: "New releases", type: "quicklink", children: [], keywords: ["learn more"] }
           ]
         },
 
@@ -505,10 +505,55 @@ const TREE_DATA = {
           label: "Analytics",
           type: "topic",
           children: [
-            { id: "biz-performance", label: "Performance", type: "subtopic", children: [] },
-            { id: "biz-review-insights", label: "Review insights", type: "subtopic", children: [] },
-            { id: "biz-engagement", label: "Engagement", type: "subtopic", children: [] },
-            { id: "biz-market", label: "Market", type: "subtopic", children: [] }
+            {
+              id: "biz-performance",
+              label: "Performance",
+              type: "subtopic",
+              children: [
+                { id: "biz-analytics-explorer", label: "Analytics explorer", type: "article" },
+                { id: "biz-invitation-analytics", label: "Invitation analytics", type: "article" },
+                { id: "biz-reply-analytics", label: "Reply analytics", type: "article" },
+                { id: "biz-service-reviews-analytics", label: "Service reviews analytics", type: "article" }
+              ]
+            },
+            {
+              id: "biz-review-insights",
+              label: "Review insights",
+              type: "subtopic",
+              children: [
+                { id: "biz-ri-locations", label: "Trustpilot Analytics: Review Insights - Locations", type: "article", keywords: ["locations"] },
+                { id: "biz-ri-spotlight-report", label: "Trustpilot Analytics: Review Insights - Spotlight report", type: "article", keywords: ["spotlight report"] },
+                { id: "biz-ri-topics", label: "Trustpilot Analytics: Review Insights - Topics", type: "article", keywords: ["topics"] },
+                { id: "biz-ri-trustscore-forecast", label: "Trustpilot Analytics: Review Insights - TrustScore forecast", type: "article", keywords: ["trustscore forecast"] }
+              ]
+            },
+            {
+              id: "biz-engagement",
+              label: "Engagement",
+              type: "subtopic",
+              children: [
+                { id: "biz-ai-search-analytics", label: "AI search analytics", type: "article" },
+                { id: "biz-eng-organic-reach", label: "Trustpilot Analytics: Organic reach", type: "article", keywords: ["organic reach"] },
+                { id: "biz-eng-profile-engagement", label: "Trustpilot Analytics: Profile engagement", type: "article", keywords: ["profile engagement"] },
+                { id: "biz-eng-search-engagement", label: "Trustpilot Analytics: Search engagement", type: "article", keywords: ["search engagement"] },
+                { id: "biz-eng-seo-reach", label: "Trustpilot Analytics: SEO reach", type: "article", keywords: ["seo reach"] },
+                { id: "biz-eng-visitor-insights", label: "Trustpilot Analytics: Visitor insights", type: "article", keywords: ["visitor insights"] },
+                { id: "biz-eng-widgets-engagement", label: "Trustpilot Analytics: Widgets engagement", type: "article", keywords: ["widgets engagement"] }
+              ]
+            },
+            {
+              id: "biz-market",
+              label: "Market",
+              type: "subtopic",
+              children: [
+                { id: "biz-market-insights", label: "Market insights", type: "article" },
+                { id: "biz-market-peers", label: "Trustpilot Analytics: Market peers", type: "article", keywords: ["market peers"] },
+                { id: "biz-market-topics", label: "Trustpilot Analytics: Market topics", type: "article", keywords: ["market topics"] },
+                { id: "biz-market-trends", label: "Trustpilot Analytics: Market trends", type: "article", keywords: ["market trends"] },
+                { id: "biz-market-my-competitors", label: "Trustpilot Analytics: My competitors", type: "article", keywords: ["my competitors", "competitors"] }
+              ]
+            },
+            { id: "biz-custom-dashboards", label: "Custom dashboards", type: "article" }
           ]
         },
         {
@@ -516,7 +561,14 @@ const TREE_DATA = {
           label: "Share & Promote",
           type: "topic",
           children: [
-            { id: "biz-ai-visibility-best-practices", label: "Trustpilot best practices for AI visibility", type: "article" }
+            { id: "biz-create-trustpilot-asset", label: "Create a Trustpilot asset", type: "article" },
+            { id: "biz-share-facebook-instagram", label: "Share your rating and reviews on Facebook and Instagram", type: "article", keywords: ["facebook", "instagram", "social media"] },
+            { id: "biz-share-pinterest", label: "Share your rating and reviews on Pinterest", type: "article", keywords: ["pinterest", "social media"] },
+            { id: "biz-style-guidelines-marketing-assets", label: "Style guidelines for Trustpilot's marketing assets", type: "article", keywords: ["style guidelines", "brand"] },
+            { id: "biz-google-store-ratings", label: "Trustpilot and Google store ratings", type: "article", keywords: ["google", "store ratings"] },
+            { id: "biz-ai-visibility-best-practices", label: "Trustpilot best practices for AI visibility", type: "article", keywords: ["ai visibility"] },
+            { id: "biz-business-and-ai-faq", label: "Trustpilot Business and AI – FAQ", type: "article", keywords: ["ai faq"] },
+            { id: "biz-marketing-assets", label: "Trustpilot's Marketing assets", type: "article", keywords: ["marketing assets"] }
           ]
         },
         {
@@ -524,8 +576,25 @@ const TREE_DATA = {
           label: "TrustBox Widgets",
           type: "topic",
           children: [
-            { id: "biz-add-widget", label: "How to add a widget", type: "subtopic", children: [] },
-            { id: "biz-widget-overview-faq", label: "Widget overview and FAQ", type: "subtopic", children: [] },
+            {
+              id: "biz-add-widget",
+              label: "How to add a widget",
+              type: "subtopic",
+              children: [
+                { id: "biz-widget-accessibility", label: "Accessibility for TrustBox widgets", type: "article", keywords: ["accessibility"] },
+                { id: "biz-add-service-review-widget", label: "Add a service review TrustBox widget", type: "article", keywords: ["service review widget"] },
+                { id: "biz-add-newsletter-widget", label: "Add a TrustBox Newsletter widget to your email campaigns", type: "article", keywords: ["newsletter widget", "email campaigns"] }
+              ]
+            },
+            {
+              id: "biz-widget-overview-faq",
+              label: "Widget overview and FAQ",
+              type: "subtopic",
+              children: [
+                { id: "biz-trustbox-widget-overview", label: "TrustBox widget overview", type: "article" },
+                { id: "biz-where-to-place-widgets", label: "Where to place TrustBox widgets on your website", type: "article", keywords: ["placement"] }
+              ]
+            },
             { id: "biz-what-is-trustbox-widget", label: "What is a TrustBox widget?", type: "article" }
           ]
         },
@@ -534,11 +603,59 @@ const TREE_DATA = {
           label: "Integrations",
           type: "topic",
           children: [
-            { id: "biz-integrations-ecommerce", label: "Ecommerce", type: "subtopic", children: [] },
-            { id: "biz-integrations-payment-crm", label: "Payment & CRM", type: "subtopic", children: [] },
-            { id: "biz-integrations-developer-tools", label: "Developer tools", type: "subtopic", children: [] },
-            { id: "biz-integrations-marketing", label: "Marketing", type: "subtopic", children: [] },
-            { id: "biz-integrations-customer-support", label: "Customer support", type: "subtopic", children: [] }
+            {
+              id: "biz-integrations-ecommerce",
+              label: "Ecommerce",
+              type: "subtopic",
+              children: [
+                { id: "biz-opencart-integration", label: "Trustpilot's OpenCart 3.0 integration", type: "article", keywords: ["opencart"] },
+                { id: "biz-prestashop-integration", label: "Trustpilot's PrestaShop integration", type: "article", keywords: ["prestashop"] },
+                { id: "biz-shopify-app-integration", label: "Trustpilot's Shopify app", type: "article", keywords: ["shopify"] },
+                { id: "biz-upgrade-shopify-app", label: "Upgrade to the new Trustpilot app for Shopify", type: "article", keywords: ["shopify"] }
+              ]
+            },
+            {
+              id: "biz-integrations-payment-crm",
+              label: "Payment & CRM",
+              type: "subtopic",
+              children: [
+                { id: "biz-upgrade-salesforce-113-114", label: "How to upgrade from Trustpilot's Salesforce integration 1.13 to 1.14", type: "article", keywords: ["salesforce"] },
+                { id: "biz-salesforce-integration", label: "Trustpilot's Salesforce integration (1.14 and above)", type: "article", keywords: ["salesforce"] },
+                { id: "biz-hubspot-integration", label: "Trustpilot's HubSpot integration", type: "article", keywords: ["hubspot"] }
+              ]
+            },
+            {
+              id: "biz-integrations-developer-tools",
+              label: "Developer tools",
+              type: "subtopic",
+              children: [
+                { id: "biz-custom-trustbox-via-api", label: "Create a custom TrustBox widget using Trustpilot APIs", type: "article", keywords: ["api", "custom widget"] },
+                { id: "biz-send-invitations-via-api", label: "Send invitations using a Trustpilot API Invitation", type: "article", keywords: ["api", "invitations"] },
+                { id: "biz-api-service-review-guidelines", label: "Trustpilot APIs - Service Review Integration Guidelines", type: "article", keywords: ["api", "service review"] }
+              ]
+            },
+            {
+              id: "biz-integrations-marketing",
+              label: "Marketing",
+              type: "subtopic",
+              children: [
+                { id: "biz-partner-built-integration-overview", label: "Partner-built integration overview", type: "article", keywords: ["partner-built"] },
+                { id: "biz-klaviyo-integration", label: "Trustpilot's Klaviyo integration", type: "article", keywords: ["klaviyo"] },
+                { id: "biz-mailchimp-integration", label: "Trustpilot's Mailchimp integration", type: "article", keywords: ["mailchimp"] },
+                { id: "biz-google-tag-manager-integration", label: "Trustpilot's Google Tag Manager integration", type: "article", keywords: ["google tag manager", "gtm"] },
+                { id: "biz-hootsuite-integration", label: "Trustpilot's Hootsuite integration", type: "article", keywords: ["hootsuite"] }
+              ]
+            },
+            {
+              id: "biz-integrations-customer-support",
+              label: "Customer support",
+              type: "subtopic",
+              children: [
+                { id: "biz-slack-integration", label: "Trustpilot's Slack integration", type: "article", keywords: ["slack"] },
+                { id: "biz-zendesk-integration", label: "Trustpilot's Zendesk integration", type: "article", keywords: ["zendesk"] }
+              ]
+            },
+            { id: "biz-integration-overview", label: "Trustpilot's integration overview", type: "article" }
           ]
         }
       ]
